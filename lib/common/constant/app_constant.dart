@@ -1,0 +1,12 @@
+
+class AppConstant {
+  /// //////////////////////////////////////常量////////////////////////////////////// ///
+
+  static const USER_TOKEN = 'user_token';
+  static const USER_MOBILE = 'user_mobile';
+  static const USER_NICKNAME = 'user_nickName';
+  static const USER_SEX = 'user_sex';
+
+/////////////////////////////////////////常量////////////////////////////////////// ///
+
+}
