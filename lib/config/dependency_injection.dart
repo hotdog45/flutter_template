@@ -6,7 +6,8 @@
  * @Description: In User Settings Edit
  * @FilePath: /todo/lib/utils/dependency_injection.dart
  */
-import 'package:duo_hao/common/data/app_sp_service.dart';
+import 'package:duo_hao/app/data/net/http_manager.dart';
+import 'package:duo_hao/app/data/service/app_sp_service.dart';
 import 'package:get/get.dart';
 
 /// 依赖注入
@@ -16,6 +17,7 @@ class DenpendencyInjection {
     await Get.putAsync(() => AppSpController().init());
     // dio配置信息
     //  网络请求
+    Get.put(HttpManager());
     // 登录信息提供者
     // 数据库
   }

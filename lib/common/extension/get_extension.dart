@@ -1,4 +1,4 @@
-import 'package:duo_hao/widget/common/loading_dialog.dart';
+import 'package:duo_hao/widget/loading_dialog.dart';
 import 'package:get/get.dart';
 
 extension GetExtension on GetInterface {
