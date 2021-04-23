@@ -79,6 +79,6 @@ class LogUtil {
   }
 
   static void _logEmpyLine(){
-    print("");
+    print('');
   }
 }

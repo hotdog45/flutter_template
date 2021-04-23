@@ -1,1 +1,17 @@
-include: package:pedantic/analysis_options.1.11.0.yaml
+#include: package:pedantic/analysis_options.1.11.0.yaml
+#analyzer:
+#  strong-mode:
+#    implicit-casts: true
+#linter:
+#  rules:
+#    # STYLE
+#    - camel_case_types
+#    - camel_case_extensions
+#    - file_names
+#    - non_constant_identifier_names
+#    - constant_identifier_names # prefer
+#    - directives_ordering
+#    - lines_longer_than_80_chars # avoid
+#    # DOCUMENTATION
+#    - package_api_docs # prefer
+#    - public_member_api_docs # prefer

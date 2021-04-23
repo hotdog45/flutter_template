@@ -1,4 +1,5 @@
 import 'package:duo_hao/app/modules/home_module/home_controller.dart';
+import 'package:duo_hao/app/modules/webview/webview_page.dart';
 import 'package:duo_hao/app/routes/app_pages.dart';
 import 'package:duo_hao/app/theme/app_colors.dart';
 import 'package:duo_hao/widget/my_app_bar.dart';
@@ -6,6 +7,7 @@ import 'package:duo_hao/widget/my_super_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class HomePage extends GetWidget<HomeController> {
   @override
@@ -19,6 +21,36 @@ class HomePage extends GetWidget<HomeController> {
               text: "商品列表页22...",
               onTap: () {
                 Get.toNamed(Routes.GOODS_LIST);
+              },
+              fontSize: 32.sp,
+              textColor: Colors.white,
+              bgColor: randomColor(),
+              height: 88.w,
+              radius: 12.w,
+              margin: EdgeInsets.only(top: 80.w, left: 60.w, right: 60.w),
+            ),
+            MySuperWidget(
+              text: "测试",
+              onTap: () {
+                // Get.snackbar('新消息', 'Your Email not be null');
+
+                Get.to(H5WebViewPage(title: "测试",url: "https://www.baidu.com",));
+
+              },
+              fontSize: 32.sp,
+              textColor: Colors.white,
+              bgColor: randomColor(),
+              height: 88.w,
+              radius: 12.w,
+              margin: EdgeInsets.only(top: 80.w, left: 60.w, right: 60.w),
+            ),
+            MySuperWidget(
+              text: "测试22",
+              onTap: () {
+                // Get.snackbar('新消息', 'Your Email not be null');
+
+                // Get.to(H5WebViewPage(title: "测试",url: "https://www.baidu.com",));
+                launch("https://www.baidu.com");
               },
               fontSize: 32.sp,
               textColor: Colors.white,

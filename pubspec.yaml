@@ -31,7 +31,7 @@ dependencies:
   device_info_plus: ^1.0.0  #设备信息
   octo_image: ^1.0.0+1 # 支持占位图 错误图 加载进度
   convex_bottom_bar: ^3.0.0 # 底部tab
-  pedantic: ^1.11.0 #编码规范
+#  pedantic: ^1.11.0 #编码规范
 
   #工具
   dio_log : ^2.0.0 #app内抓包工具
@@ -52,7 +52,7 @@ dependencies:
 #  dokit: ^0.2.14  #暂不支持flutter2.0 滴滴工具: 提供了日志、method channel信息、路由信息、网络抓包、帧率、设备与内存信息查看、控件信息查看功能.
 # ===========end 仅支持iOS Android  的库 end =========================
 dev_dependencies:
-  pedantic: ^1.11.0
+
   flutter_test:
     sdk: flutter
 
