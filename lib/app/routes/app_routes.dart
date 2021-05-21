@@ -15,4 +15,5 @@ abstract class Routes {
   static const SIGN_UP = '/sign_up'; // SignUp page
   static const GOODS_LIST = '/goods_list'; // GoodsList page
   static const GOODS_DETAILS = '/goods_details'; // GoodsDetails page
+  static const TWO_PANE_PAGE = '/two_pane_page'; // TwoPanePage page
 }

@@ -1,16 +1,49 @@
 # duo_hao
+多好APP
+ 
+## 编译运行流程
+1、配置好Flutter开发环境(目前Flutter SDK 版本 **2.0**)
+2、clone代码，执行`Packages get`安装第三方包
+3、运行: `flutter run `
 
-A new Flutter application.
+### 下载
+| 类型          | 二维码                                      |
+| ----------- | ---------------------------------------- |
+| **Apk二维码**  | ![](./xxx.png) |
+| **iOS暂无下载** | |
+| **web链接** | |
 
-## Getting Started
 
-This project is a starting point for a Flutter application.
 
-A few resources to get you started if this is your first Flutter project:
+## 项目结构图 
+![](./Estrutura.png)
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+### 常见问题
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+### 示例图片
+
+### 第三方框架
+
+>当前 Flutter SDK 版本 2.0.5
+
+| 库                          | 功能             |
+| -------------------------- | -------------- |
+| **dio**                    | **网络框架**       |
+| **shared_preferences**     | **本地数据缓存**     |
+| **fluttertoast**           | **toast**      |
+| **device_info**            | **设备信息**       |
+| **connectivity**           | **网络链接**       |
+| **url_launcher**           | **启动外部浏览器**    |
+| **share**                  | **系统分享**       |
+| **get_version**            | **版本信息**       |
+| **flutter_webview_plugin** | **全屏的webview** |
+| **sqflite**                | **数据库**        |
+| **photo_view**             | **图片预览**       |
+| **flutter_slidable**       | **侧滑**         |
+| **path_provider**          | **本地路径**       |
+| **permission_handler**     | **权限**         |
+
+### 进行中：
+
+
+### 注意点：

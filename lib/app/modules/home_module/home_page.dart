@@ -34,7 +34,7 @@ class HomePage extends GetWidget<HomeController> {
               onTap: () {
                 // Get.snackbar('新消息', 'Your Email not be null');
 
-                Get.to(H5WebViewPage(title: "测试",url: "https://www.baidu.com",));
+                // Get.to(H5WebViewPage(title: "测试",url: "https://www.baidu.com",));
 
               },
               fontSize: 32.sp,

@@ -30,6 +30,7 @@ dependencies:
   path_provider: ^2.0.1 #获取APP路径
   device_info_plus: ^1.0.0  #设备信息
   octo_image: ^1.0.0+1 # 支持占位图 错误图 加载进度
+  extended_image: ^4.0.1
   convex_bottom_bar: ^3.0.0 # 底部tab
 #  pedantic: ^1.11.0 #编码规范
 
