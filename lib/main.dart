@@ -24,7 +24,8 @@ class MyApp extends StatelessWidget {
     final botToastBuilder = BotToastInit();
     return ScreenUtilInit(
         designSize: Size(750, 1334),
-        builder: () => GetMaterialApp(
+    builder: (BuildContext context, Widget child) {
+    return  GetMaterialApp(
             debugShowCheckedModeBanner: false,
             initialRoute: Routes.SPLASH,
             builder: (context, child) {
@@ -41,7 +42,7 @@ class MyApp extends StatelessWidget {
               page: () => NotFoundPage(),
               binding: NotFoundBinding(),
             ),
-            getPages: AppPages.pages));
+            getPages: AppPages.pages);});
   }
 }
 
