@@ -1,5 +1,4 @@
-# duo_hao
-多好APP
+# flutter_template
  
 ## 编译运行流程
 1、配置好Flutter开发环境(目前Flutter SDK 版本 **2.0**)
