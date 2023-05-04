@@ -1,7 +1,7 @@
-import 'package:duo_hao/widget/my_app_bar.dart';
+import 'package:flutter_template/widget/my_app_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:duo_hao/app/modules/goods_list_module/goods_list_controller.dart';
+import 'package:flutter_template/app/modules/goods_list_module/goods_list_controller.dart';
 
 import 'widget/goods_item_widget.dart';
 

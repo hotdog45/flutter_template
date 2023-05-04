@@ -19,13 +19,13 @@ class GoodsModel {
     this.subTitle,
   });
 
-  String goodsName;
-  String price;
-  String image;
-  String id;
-  String count;
-  String deletePrice;
-  String subTitle;
+  String? goodsName;
+  String? price;
+  String? image;
+  String? id;
+  String? count;
+  String? deletePrice;
+  String? subTitle;
 
   factory GoodsModel.fromJson(Map<String, dynamic> json) => GoodsModel(
     goodsName: json["goodsName"],

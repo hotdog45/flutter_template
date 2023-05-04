@@ -1,4 +1,4 @@
-import 'package:duo_hao/config/config.dart';
+import 'package:flutter_template/config/config.dart';
 
 /// host1
 const String BASE_URL_RELEASE =

@@ -1,5 +1,5 @@
-import 'package:duo_hao/app/data/repository/goods_list_repository.dart';
-import 'package:duo_hao/common/extension/get_extension.dart';
+import 'package:flutter_template/app/data/repository/goods_list_repository.dart';
+import 'package:flutter_template/common/extension/get_extension.dart';
 import 'package:get/get.dart';
 
 
@@ -7,7 +7,7 @@ class GoodsListController extends GetxController{
 
   final GoodsListRepository repository;
 
-  GoodsListController({this.repository});
+  GoodsListController({required this.repository});
 
   var _obj = ''.obs;
   set obj(value) => _obj.value = value;
@@ -35,7 +35,7 @@ class GoodsListController extends GetxController{
       Get.dismiss();
     } catch (e) {
       Get.dismiss();
-      Get.snackbar('Error', e.message ?? "请求失败~");
+      Get.snackbar('Error', e.toString());
     }
   }
 }

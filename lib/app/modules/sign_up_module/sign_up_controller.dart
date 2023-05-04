@@ -1,10 +1,10 @@
-import 'package:duo_hao/app/data/repository/sign_up_repository.dart';
+import 'package:flutter_template/app/data/repository/sign_up_repository.dart';
 import 'package:get/get.dart';
 
 
 class SignUpController extends GetxController{
 
-  final SignUpRepository repository;
+  final SignUpRepository? repository;
 
   SignUpController({this.repository});
 

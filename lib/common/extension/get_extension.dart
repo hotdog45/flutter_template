@@ -1,17 +1,20 @@
-import 'package:duo_hao/widget/loading_dialog.dart';
 import 'package:get/get.dart';
+import 'package:flutter/material.dart';
+
+import '../../widget/loading_dialog.dart';
+export 'package:get/get.dart';
 
 extension GetExtension on GetInterface {
-  dismiss() {
-    if (Get.isDialogOpen) {
-      Get.back();
+  void dismiss<T>({T? result}) {
+    if (Get.isDialogOpen ?? false) {
+      Get.back(result: result);
     }
   }
 
-  loading() {
-    if (Get.isDialogOpen) {
+  void loading() {
+    if (Get.isDialogOpen ?? false) {
       Get.back();
     }
-    Get.dialog(LoadingDialog());
+    Get.dialog(LoadingDialog(), barrierColor: Colors.transparent);
   }
 }

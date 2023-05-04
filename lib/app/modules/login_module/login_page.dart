@@ -1,6 +1,6 @@
-import 'package:duo_hao/app/modules/login_module/login_controller.dart';
-import 'package:duo_hao/app/theme/app_colors.dart';
-import 'package:duo_hao/widget/my_super_widget.dart';
+import 'package:flutter_template/app/modules/login_module/login_controller.dart';
+import 'package:flutter_template/app/theme/app_colors.dart';
+import 'package:flutter_template/widget/my_super_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';

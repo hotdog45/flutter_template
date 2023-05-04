@@ -1,10 +1,10 @@
-
 import 'package:dio/dio.dart';
 import 'package:dio_log/dio_log.dart';
-import 'package:duo_hao/app/data/model/base_model.dart';
-import 'package:duo_hao/app/utils/toast_utils.dart';
-import 'package:duo_hao/config/config.dart';
+import 'package:flutter_template/app/data/model/base_model.dart';
+import 'package:flutter_template/app/utils/toast_utils.dart';
+import 'package:flutter_template/config/config.dart';
 
+import '../../utils/log_utils.dart';
 import 'address.dart';
 import 'code.dart';
 import 'interceptors/header_interceptor.dart';
@@ -24,49 +24,66 @@ class HttpManager {
   }
 
   ///发起网络请求
-  netFetch(String api, body,
-      {noTip = false,
-      method = "post",
-      useBaseModel = true,
-      hostType = 1}) async {
-    String apiNum = "1"; //
-    resultError(DioError e) {
-      Response errorResponse;
-      if (e.response != null) {
-        errorResponse = e.response;
-      } else {
-        errorResponse = Response(statusCode: 999, requestOptions: null);
+  Future<dynamic> netFetch(
+    String api,
+    dynamic body, {
+    Map<String, dynamic> queryParametars = const {},
+    bool noTip = false,
+    String method = "post",
+    bool needBaseModel = false,
+    bool showLoading = true, // 是否展示加载动画，默认展示
+    Function(int, int)? onSendProgress,
+    Function(int, int)? onReceiveProgress,
+  }) async {
+    try {
+      if (showLoading) {
+        myToast.showLoading(text: '');
       }
-      if (e.type == DioErrorType.connectTimeout ||
-          e.type == DioErrorType.receiveTimeout) {
-        errorResponse.statusCode = Code.NETWORK_TIMEOUT;
+      final host = api.startsWith('http') ? api : BASE_URL_RELEASE + api;
+      final response = await _dio.request(
+        host,
+        data: body,
+        queryParameters: queryParametars,
+        options: Options(method: method),
+        onSendProgress: onSendProgress,
+        onReceiveProgress: onReceiveProgress,
+      );
+      myToast.closeLoading();
+      if (response.statusCode != null && response.statusCode! < 205) {
+        BaseModel baseModel = BaseModel.fromJson(response.data);
+        if (needBaseModel) return baseModel;
+        if (baseModel.success) {
+          return baseModel.data;
+        }
+        if (baseModel.code == "400015") {
+          /// token 失效 退出登录
+          MyToast.show('token 失效,请重新登录');
+
+          logger.e('app请求账号退出');
+          return null;
+        }
+        if (!noTip) MyToast.show(baseModel.msg);
+        return null;
       }
       if (!noTip) MyToast.show(Config.ERROR_MSG);
       return null;
-    }
-
-    resultOk(Response response) async {
-      BaseModel baseModel = BaseModel.fromJson(response.data);
-      if (!useBaseModel) return baseModel;
-      if (baseModel != null && baseModel.success) {
-        return baseModel.data;
+    } on DioError catch (err) {
+      MyToast().closeLoading();
+      logger.e(
+          '网络错误：code==>${err.response?.statusCode} msg==>${err.response?.data["message"]}');
+      String message = '网络异常';
+      if (!noTip && err.response?.data["message"] != null) {
+        message = '${err.response?.data["message"] ?? '网络异常'}';
       }
-      if (!noTip)  MyToast.show(baseModel.msg);
+      if (err.type == DioErrorType.connectTimeout ||
+          err.type == DioErrorType.receiveTimeout) {
+        message = '网络请求超时';
+      }
+      if (err.message.contains('Connection refused')) {
+        message = '服务器连接异常';
+      }
+      MyToast.show(message);
       return null;
     }
-
-    Response response;
-    try {
-      response = await _dio.request(getHostAddress(apiNum, hostType) + api,
-          data: body, options: Options(method: method));
-    } on DioError catch (e) {
-      return resultError(e);
-    }
-    if (response.data is DioError) {
-      return resultError(response.data);
-    }
-    return resultOk(response);
   }
 }
-
-// final HttpManager httpManager = HttpManager();

@@ -1,4 +1,4 @@
-import 'package:duo_hao/app/modules/not_found_module/not_found_controller.dart';
+import 'package:flutter_template/app/modules/not_found_module/not_found_controller.dart';
 
 import 'package:get/get.dart';
 /**

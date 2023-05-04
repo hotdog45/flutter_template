@@ -1,115 +1,128 @@
-import 'package:duo_hao/config/config.dart';
+import 'dart:io';
+import 'dart:math';
+
+// import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
-String testImage = "https://bing.ioliu.cn/v1/rand?key=person&w=500&h=500";
-String hostImage = "https://bing.ioliu.cn/v1/rand?key=person&w=500&h=500";
+import '../config/config.dart';
 
+String testImage =
+    "https://bing.ioliu.cn/v1/rand?key=person&w=${Random().nextInt(700)}&h=${Random().nextInt(700)}";
+String testImage2 =
+    "https://picsum.photos/${Random().nextInt(700)}/${Random().nextInt(700)}/";
 
 /// 网络图片加载
 class MyImage extends StatelessWidget {
-  final String imageUrl;
-  final String placeholder;
-  final BoxFit fit;
+  final String? imageUrl;
+  final String? placeholder;
+  final BoxFit? fit;
 
-  final Widget child;
+  final Widget? child;
   final Color borderColor;
+  final Color? color;
 
   final bool isAssetImage;
+  /// 新增展示本地文件目录下的图片
+  final bool isFileImage;
   final bool isOval;
   final bool hasBorder;
 
   final double borderWidth;
   final double radius;
-  final double height;
-  final double width;
+  final double? height;
+  final double? width;
 
   final progressIndicatorBuilder;
   final errorWidget;
 
-  final EdgeInsetsGeometry padding;
-  final EdgeInsetsGeometry margin;
+  final EdgeInsetsGeometry? padding;
+  final EdgeInsetsGeometry? margin;
 
-  final GestureTapCallback onTap;
-  final GestureTapCallback onLongPress;
-  final GestureTapCallback onDoubleTap;
+  final GestureTapCallback? onTap;
+  final GestureTapCallback? onLongPress;
+  final GestureTapCallback? onDoubleTap;
 
   const MyImage(this.imageUrl,
-      {Key key,
-      this.placeholder,
-      this.child,
-      this.fit = BoxFit.fill,
-      this.width,
-      this.isAssetImage = false,
-      this.isOval = false,
-      this.hasBorder = false,
-      this.borderColor = Colors.transparent,
-      this.borderWidth = 0.5,
-      this.radius = 0,
-      this.height,
-      this.onTap,
-      this.onLongPress,
-      this.onDoubleTap,
-      this.padding,
-      this.margin,
-      this.progressIndicatorBuilder,
-      this.errorWidget})
+      {Key? key,
+        this.placeholder = '',
+        this.child,
+        this.fit = BoxFit.cover,
+        // this.fit ,
+        this.width,
+        this.isAssetImage = false,
+        this.isFileImage = false,
+        this.isOval = false,
+        this.hasBorder = false,
+        this.color,
+        this.borderColor = Colors.transparent,
+        this.borderWidth = 0.5,
+        this.radius = 0,
+        this.height,
+        this.onTap,
+        this.onLongPress,
+        this.onDoubleTap,
+        this.padding,
+        this.margin,
+        this.progressIndicatorBuilder,
+        this.errorWidget})
       : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    // 占位图
-    // Widget placeholderWidget = Container();
     Widget imageWidget;
-
-    // if (placeholder != null && placeholder.isNotEmpty) {
-    //   placeholderWidget = Image.asset(
-    //     placeholder,
-    //     fit: fit,
-    //     width: width,
-    //     height: height,
-    //   );
-    // }
-    if (isAssetImage) {
-      imageWidget = Image.asset(
-        Config.KEY_IMAGE_PATH + imageUrl,
+    if (imageUrl == null) {
+      return Container();
+    }
+    if(isFileImage){
+      imageWidget = Image.file(
+        File(imageUrl!),
         fit: fit,
         width: width,
         height: height,
+        color: color,
       );
     } else {
-      // imageWidget = CachedNetworkImage(
-      //   imageUrl: imageUrl.isNotEmpty ? imageUrl : testImage,
-      //   placeholder: (context, url) => placeholderWidget,
-      //   fit: fit,
-      //   width: width,
-      //   height: height,
-      //
-      //   // progressIndicatorBuilder: (context, url, downloadProgress) =>
-      //   //     progressIndicatorBuilder ??
-      //   //     CircularProgressIndicator(value: downloadProgress.progress),
-      //   errorWidget: (context, url, error) => errorWidget ?? Icon(Icons.error),
-      // );
-
-      String img = imageUrl;
-      if (img == null || img.length <5){
-        img = testImage;
-      }else{
-        if (!imageUrl.startsWith("http") && !imageUrl.startsWith("https://")){
-          img = hostImage + img;
+      if (isAssetImage) {
+        imageWidget = Image.asset(
+          Config.KEY_IMAGE_PATH + imageUrl!,
+          fit: fit,
+          width: width,
+          height: height,
+          color: color,
+        );
+      } else {
+        String img = imageUrl!;
+        if (img.length < 5) {
+          img = testImage;
+        } else {
+          if (!imageUrl!.startsWith("http") &&
+              !imageUrl!.startsWith("https://")) {
+            img = "https://" + img;
+          }
         }
+        imageWidget = Image.network(img,width: width,height: height);
+
+        // imageWidget = CachedNetworkImage(
+        //   imageUrl: img,
+        //   fit: fit,
+        //   width: width,
+        //   height: height,
+        //   fadeInDuration: Duration.zero,
+        //   fadeOutDuration: Duration.zero,
+        //   // progressIndicatorBuilder
+        //   placeholder: (context, url) => placeholder!.length > 0 ? Image.asset(Config.KEY_IMAGE_PATH + placeholder!, fit: fit, width: width, height: height,) : SizedBox(),
+        //   errorWidget: (context, url, error) =>
+        //   errorWidget ??
+        //       Padding(
+        //           padding: EdgeInsets.all(20),
+        //           child: Container(color: Colors.blueGrey)),
+        // );
       }
-
-
-      imageWidget = Image.network(
-        img ?? testImage,
-        fit: fit,
-        width: width,
-        height: height,
-      );
     }
 
+
     if (padding != null) {
-      imageWidget = Padding(padding: padding, child: imageWidget);
+      imageWidget = Padding(padding: padding!, child: imageWidget);
     }
 
     if (radius > 0) {
@@ -120,7 +133,7 @@ class MyImage extends StatelessWidget {
       imageWidget = ClipOval(child: imageWidget);
     }
     if (child != null) {
-      imageWidget = Stack(children: [imageWidget, child]);
+      imageWidget = Stack(children: [imageWidget, child!]);
     }
     if (onTap != null || onDoubleTap != null || onLongPress != null) {
       imageWidget = InkWell(
@@ -139,7 +152,8 @@ class MyImage extends StatelessWidget {
         border: hasBorder
             ? Border.all(color: borderColor, width: borderWidth)
             : null,
-        borderRadius: BorderRadius.all(Radius.circular(isOval ? width/2: radius)),
+        borderRadius:
+        BorderRadius.all(Radius.circular(isOval ? width! / 2 : radius)),
       ),
     );
     return imageWidget;

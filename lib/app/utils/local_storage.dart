@@ -1,20 +1,22 @@
-import 'package:get/get.dart';
-import 'package:shared_preferences/shared_preferences.dart';
+import 'package:get_storage/get_storage.dart';
 
-///SharedPreferences 本地存储
+final _box = GetStorage("xd_service");
+
 class LocalStorage {
-  static save(String key, value) async {
-    SharedPreferences prefs = Get.find<SharedPreferences>();
-    prefs.setString(key, value);
+
+  static Future<void> save(String key, dynamic value) {
+    return _box.write(key, value);
   }
 
-  static get(String key) async {
-    SharedPreferences prefs = Get.find<SharedPreferences>();
-    return prefs.get(key);
+  static dynamic get(String key) {
+    return _box.read(key);
   }
 
-  static remove(String key) async {
-    SharedPreferences prefs = Get.find<SharedPreferences>();
-    prefs.remove(key);
+  static bool hasData(String key) {
+    return _box.hasData(key);
+  }
+
+  static Future<void> remove(String key) {
+    return _box.remove(key);
   }
 }

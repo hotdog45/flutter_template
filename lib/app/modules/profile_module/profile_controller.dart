@@ -1,4 +1,4 @@
-import 'package:duo_hao/app/data/repository/profile_repository.dart';
+import 'package:flutter_template/app/data/repository/profile_repository.dart';
 import 'package:get/get.dart';
 /**
  * GetX Template Generator - fb.com/htngu.99
@@ -6,7 +6,7 @@ import 'package:get/get.dart';
 
 class ProfileController extends GetxController{
 
-  final ProfileRepository repository;
+  final ProfileRepository? repository;
 
   ProfileController({this.repository});
 

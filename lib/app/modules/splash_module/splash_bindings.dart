@@ -1,4 +1,4 @@
-import 'package:duo_hao/app/modules/splash_module/splash_controller.dart';
+import 'package:flutter_template/app/modules/splash_module/splash_controller.dart';
 
 import 'package:get/get.dart';
 /**

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
 class MySuperWidget extends StatelessWidget {
-  final double width;
-  final double height;
-  final Widget child;
+  final double? width;
+  final double? height;
+  final Widget? child;
 
   final Color bgColor;
   final Color borderColor;
@@ -13,9 +13,9 @@ class MySuperWidget extends StatelessWidget {
 
   final double radius;
 
-  final GestureTapCallback onTap;
-  final GestureTapCallback onLongPress;
-  final GestureTapCallback onDoubleTap;
+  final GestureTapCallback? onTap;
+  final GestureTapCallback? onLongPress;
+  final GestureTapCallback? onDoubleTap;
 
   final AlignmentGeometry alignment;
 
@@ -30,27 +30,27 @@ class MySuperWidget extends StatelessWidget {
   final EdgeInsetsGeometry margin;
 
   const MySuperWidget(
-      {Key key,
-      this.width,
-      this.height,
-      this.bgColor = Colors.transparent,
-      this.borderColor = Colors.transparent,
-      this.borderWidth = 0.5,
-      this.hasBorder = false,
-      this.hasShadow = false,
-      this.radius = 0,
-      this.maxLines = 99,
-      this.onTap,
-      this.onLongPress,
-      this.onDoubleTap,
-      this.alignment = Alignment.center,
-      this.text = "",
-      this.fontSize = 14,
-      this.margin = const EdgeInsets.all(0),
-      this.padding = const EdgeInsets.all(0),
-      this.textColor = Colors.black,
-      this.fontWeight = FontWeight.normal,
-      this.child})
+      {Key? key,
+        this.width,
+        this.height,
+        this.bgColor = Colors.transparent,
+        this.borderColor = Colors.transparent,
+        this.borderWidth = 0.5,
+        this.hasBorder = false,
+        this.hasShadow = false,
+        this.radius = 0,
+        this.maxLines = 99,
+        this.onTap,
+        this.onLongPress,
+        this.onDoubleTap,
+        this.alignment = Alignment.center,
+        this.text = "",
+        this.fontSize = 14,
+        this.margin = const EdgeInsets.all(0),
+        this.padding = const EdgeInsets.all(0),
+        this.textColor = Colors.black,
+        this.fontWeight = FontWeight.normal,
+        this.child})
       : super(key: key);
 
   @override
@@ -68,15 +68,15 @@ class MySuperWidget extends StatelessWidget {
         padding: padding,
         child: text.isNotEmpty
             ? Text(
-                text,
-                style: TextStyle(
-                    fontSize: fontSize,
-                    fontWeight: fontWeight,
-                    color: textColor),
-                maxLines: maxLines,
-                overflow: TextOverflow.ellipsis,
+          text,
+          style: TextStyle(
+              fontSize: fontSize,
+              fontWeight: fontWeight,
+              color: textColor),
+          maxLines: maxLines,
+          overflow: TextOverflow.ellipsis,
           textAlign: TextAlign.left,
-              )
+        )
             : child,
         alignment: alignment,
         decoration: BoxDecoration(

@@ -1,9 +1,9 @@
-import 'package:duo_hao/app/theme/app_colors.dart';
-import 'package:duo_hao/widget/my_app_bar.dart';
-import 'package:duo_hao/widget/my_super_widget.dart';
+import 'package:flutter_template/app/theme/app_colors.dart';
+import 'package:flutter_template/widget/my_app_bar.dart';
+import 'package:flutter_template/widget/my_super_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:duo_hao/app/modules/sign_up_module/sign_up_controller.dart';
+import 'package:flutter_template/app/modules/sign_up_module/sign_up_controller.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class SignUpPage extends GetWidget<SignUpController> {

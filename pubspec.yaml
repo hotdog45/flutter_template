@@ -1,4 +1,4 @@
-name: duo_hao
+name: flutter_template
 description: A new Flutter application.
 
 publish_to: 'none'
@@ -7,51 +7,60 @@ publish_to: 'none'
 version: 1.0.0+1
 
 environment:
-  sdk: ">=2.7.0 <3.0.0"
+  sdk: ">=2.18.2 <3.0.0"
 
 dependencies:
   flutter:
     sdk: flutter
-# ==============Start支持iOS Android web win linux macOS 的库Start=========================
-  cupertino_icons: ^1.0.2
-  dio: ^4.0.0 # 网络库
-  flutter_screenutil: ^5.0.0 #屏幕适配
-  pull_to_refresh: ^1.6.5  #刷新组件
-  url_launcher: ^6.0.3 # 拉起url
+  flutter_localizations:
+    sdk: flutter
+  cupertino_icons: ^1.0.5
+  dio: ^4.0.6 # 网络库
+  flutter_screenutil: ^5.5.3+2 #屏幕适配
+  pull_to_refresh_flutter3: ^2.0.1
+  url_launcher: ^6.1.3
   event_bus: ^2.0.0 #事件总线
   get: ^4.6.5 #状态管理
-  get_storage: ^2.0.2 #内存 键值 存取
-  shared_preferences: ^2.0.5 #磁盘 键值 存取
+  get_storage: ^2.0.3 #内存 键值 存取
   flutter_swiper: ^1.1.6 # 轮播
-  bot_toast: ^4.0.1 #一个真正意义上的flutter Toast库
-  badges: ^1.2.0 #小红点
+  bot_toast: ^4.0.2 #Toast库
+  badges: ^2.0.3 #小红点
   qr_flutter: ^4.0.0 #二维码
-  photo_view: ^0.11.1 #图片预览
-  path_provider: ^2.0.1 #获取APP路径
-  device_info_plus: ^1.0.0  #设备信息
-  octo_image: ^1.0.0+1 # 支持占位图 错误图 加载进度
-  extended_image: ^4.0.1
-  convex_bottom_bar: ^3.0.0 # 底部tab
-#  pedantic: ^1.11.0 #编码规范
+  photo_view: ^0.14.0 #图片预览
+  path_provider: ^2.0.11 #获取APP路径
+  device_info_plus: ^4.0.0  #设备信息
+  signature: ^5.0.1 #手写签名板
+  flutter_slidable: ^1.0.0 #侧滑
+  launch_review: ^3.0.1 # 跳转应用市场
+  package_info_plus: ^1.4.2 # 包信息
+  open_file: ^3.2.1 # 应用内安装
+  image_picker: ^0.8.5+3  #相册
+#  fluttercontactpicker: ^4.7.0 # 通讯录
+  #  getuiflut: ^0.2.13 # 个推flutter
+#  flutter_local_notifications: ^9.7.0  #通知栏
+  archive: ^3.3.0   #文件处理
+  connectivity_plus: ^2.3.4
+  date_format: ^2.0.6
+  marquee: ^2.2.3
+  #  amap_flutter_location: ^3.0.0 #定位：高德地图
+  #  amap_flutter_map: ^3.0.0
+  map_launcher: ^2.3.0 #打开导航APP
+#  fluwx_no_pay: ^3.12.3 #微信分享
+  flutter_picker: ^2.0.3 #选择器
+  flutter_animated_dialog: ^2.0.1
+  flutter_sound: ^9.2.13 #录音
+  audio_session: ^0.1.10
+  custom_pop_up_menu: ^1.2.4
+  video_compress: ^3.1.1 #视频压缩
+  scan: ^1.6.0
+#  convex_bottom_bar: ^3.2.0
+  dio_log: ^2.0.4 #app内抓包工具
+  logger: ^1.1.0 #日志库
+#  cached_network_image: ^3.2.3
+  webview_flutter: ^3.0.4
 
-  #工具
-  dio_log : ^2.0.0 #app内抓包工具
-  logger: ^1.0.0 #日志库
-  device_preview: ^0.7.1 #不同分辨率查看效果
-# ==============end 支持iOS Android web win linux macOS 的库 end =========================
 
-# ===========Start 仅支持iOS Android  的库 Start=========================
-#  image_gallery_saver: ^1.6.9 #保存图片至本地
-#  permission_handler: ^6.1.3 #权限管理
-  flutter_inappwebview: ^5.3.2 # APP 内嵌web
-  multi_image_picker: ^4.8.0 #图片选择器
 
-  # image_picker: ^0.7.4 #图片选择器备用 wechat_assets_picker: ^5.1.2
-  #jpush_flutter: ^2.0.1 #极光推送备用
-
-  #工具包
-#  dokit: ^0.2.14  #暂不支持flutter2.0 滴滴工具: 提供了日志、method channel信息、路由信息、网络抓包、帧率、设备与内存信息查看、控件信息查看功能.
-# ===========end 仅支持iOS Android  的库 end =========================
 dev_dependencies:
 
   flutter_test:

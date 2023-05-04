@@ -1,4 +1,4 @@
-import 'package:duo_hao/app/data/provider/two_pane_page_provider.dart';
+import 'package:flutter_template/app/data/provider/two_pane_page_provider.dart';
 import 'package:flutter/cupertino.dart';
 /**
  * GetX Template Generator - fb.com/htngu.99
@@ -7,7 +7,7 @@ import 'package:flutter/cupertino.dart';
 class TwoPanePageRepository {
   final TwoPanePageProvider provider;
 
-  TwoPanePageRepository({@required this.provider}) : assert(provider != null);
+  TwoPanePageRepository({required this.provider}) : assert(provider != null);
 
   getUser(id) {
     return provider.getUser(id);

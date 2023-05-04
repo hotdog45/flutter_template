@@ -6,9 +6,9 @@ String baseModelToJson(BaseModel data) => json.encode(data.toJson());
 
 class BaseModel {
   BaseModel({
-    this.code,
-    this.success,
-    this.msg,
+    required this.code,
+    required this.success,
+    required this.msg,
     this.data,
   });
 

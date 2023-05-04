@@ -1,4 +1,4 @@
-import 'package:duo_hao/app/routes/app_pages.dart';
+import 'package:flutter_template/app/routes/app_pages.dart';
 import 'package:get/get.dart';
 
 

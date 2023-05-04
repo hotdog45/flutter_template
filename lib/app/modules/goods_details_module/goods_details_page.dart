@@ -1,10 +1,10 @@
-import 'package:duo_hao/app/theme/app_colors.dart';
-import 'package:duo_hao/widget/my_app_bar.dart';
-import 'package:duo_hao/widget/my_image.dart';
-import 'package:duo_hao/widget/my_super_widget.dart';
+import 'package:flutter_template/app/theme/app_colors.dart';
+import 'package:flutter_template/widget/my_app_bar.dart';
+import 'package:flutter_template/widget/my_image.dart';
+import 'package:flutter_template/widget/my_super_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:duo_hao/app/modules/goods_details_module/goods_details_controller.dart';
+import 'package:flutter_template/app/modules/goods_details_module/goods_details_controller.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 /**
  * GetX Template Generator - fb.com/htngu.99

@@ -1,5 +1,5 @@
 import 'package:dio/dio.dart';
-import 'package:duo_hao/app/utils/log_utils.dart';
+import 'package:flutter_template/app/utils/log_utils.dart';
 
 ///
 class ResponseInterceptors extends InterceptorsWrapper {

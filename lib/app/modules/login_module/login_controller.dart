@@ -1,8 +1,8 @@
-import 'package:duo_hao/app/data/repository/login_repository.dart';
-import 'package:duo_hao/app/routes/app_pages.dart';
-import 'package:duo_hao/app/utils/local_storage.dart';
+import 'package:flutter_template/app/data/repository/login_repository.dart';
+import 'package:flutter_template/app/routes/app_pages.dart';
+import 'package:flutter_template/app/utils/local_storage.dart';
 import 'package:get/get.dart';
-import 'package:duo_hao/common/extension/get_extension.dart';
+import 'package:flutter_template/common/extension/get_extension.dart';
 /**
  * GetX Template Generator - fb.com/htngu.99
  * */
@@ -11,7 +11,7 @@ class LoginController extends GetxController{
 
   final LoginRepository repository;
 
-  LoginController({this.repository});
+  LoginController({required this.repository});
 
   var userName = "";
   var pwd = "";
@@ -59,7 +59,7 @@ class LoginController extends GetxController{
 
     } catch (e) {
       Get.dismiss();
-      Get.snackbar('Error', e.message ?? "登录失败");
+      Get.snackbar('Error', e.toString());
     }
   }
 }

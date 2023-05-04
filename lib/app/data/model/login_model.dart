@@ -31,19 +31,19 @@ String loginModelToJson(LoginModel data) => json.encode(data.toJson());
 
 class LoginModel {
   LoginModel({
-    this.admin,
-    this.chapterTops,
-    this.coinCount,
-    this.collectIds,
-    this.email,
-    this.icon,
-    this.id,
-    this.nickname,
-    this.password,
-    this.publicName,
-    this.token,
-    this.type,
-    this.username,
+    required this.admin,
+    required this.chapterTops,
+    required this.coinCount,
+    required this.collectIds,
+    required this.email,
+    required this.icon,
+    required this.id,
+    required this.nickname,
+    required this.password,
+    required this.publicName,
+    required this.token,
+    required this.type,
+    required this.username,
   });
 
   bool admin;

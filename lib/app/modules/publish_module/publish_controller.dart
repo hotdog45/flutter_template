@@ -1,4 +1,4 @@
-import 'package:duo_hao/app/data/repository/publish_repository.dart';
+import 'package:flutter_template/app/data/repository/publish_repository.dart';
 import 'package:get/get.dart';
 /**
  * GetX Template Generator - fb.com/htngu.99
@@ -6,7 +6,7 @@ import 'package:get/get.dart';
 
 class PublishController extends GetxController{
 
-  final PublishRepository repository;
+  final PublishRepository? repository;
 
   PublishController({this.repository});
 

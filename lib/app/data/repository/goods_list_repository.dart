@@ -1,4 +1,4 @@
-import 'package:duo_hao/app/data/api/goods_api.dart';
+import 'package:flutter_template/app/data/api/goods_api.dart';
 import 'package:get/get.dart';
 
 class GoodsListRepository {

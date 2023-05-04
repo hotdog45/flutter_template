@@ -1,6 +1,6 @@
-import 'package:duo_hao/app/data/model/goods_model.dart';
-import 'package:duo_hao/app/data/net/http_manager.dart';
-import 'package:duo_hao/config/config.dart';
+import 'package:flutter_template/app/data/model/goods_model.dart';
+import 'package:flutter_template/app/data/net/http_manager.dart';
+import 'package:flutter_template/config/config.dart';
 import 'package:get/get.dart';
 
 class GoodsApi {

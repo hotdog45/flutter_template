@@ -1,16 +1,18 @@
-import 'package:duo_hao/app/data/model/goods_model.dart';
-import 'package:duo_hao/app/routes/app_pages.dart';
-import 'package:duo_hao/app/theme/app_colors.dart';
-import 'package:duo_hao/widget/my_image.dart';
-import 'package:duo_hao/widget/my_super_widget.dart';
+import 'package:flutter_template/app/data/model/goods_model.dart';
+import 'package:flutter_template/app/routes/app_pages.dart';
+import 'package:flutter_template/app/theme/app_colors.dart';
+import 'package:flutter_template/widget/my_image.dart';
+import 'package:flutter_template/widget/my_super_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
+import '../../../data/model/goods_model.dart';
+
 class GoodsItemWidget extends StatelessWidget {
   final GoodsModel model;
 
-  const GoodsItemWidget({Key key, this.model}) : super(key: key);
+  const GoodsItemWidget({Key? key, required this.model}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -36,14 +38,14 @@ class GoodsItemWidget extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       MySuperWidget(
-                        text: model.goodsName,
+                        text: model.goodsName ?? "",
                         fontSize: 32.sp,
                         maxLines: 1,
                         alignment: Alignment.centerLeft,
                         textColor: kAppTextColor,
                       ),
                       MySuperWidget(
-                        text: model.subTitle,
+                        text: model.subTitle ?? "",
                         fontSize: 28.sp,
                         maxLines: 1,
                         alignment: Alignment.centerLeft,
@@ -54,7 +56,7 @@ class GoodsItemWidget extends StatelessWidget {
                   ),
                 ),
                 MySuperWidget(
-                    text: model.price + "元",
+                    text: model.price ?? "" + "元",
                     fontWeight: FontWeight.bold,
                     fontSize: 40.sp,
                     margin: EdgeInsets.only(bottom: 60.w),

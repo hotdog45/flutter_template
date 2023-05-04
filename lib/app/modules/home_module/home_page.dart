@@ -1,9 +1,9 @@
-import 'package:duo_hao/app/modules/home_module/home_controller.dart';
-import 'package:duo_hao/app/modules/webview/webview_page.dart';
-import 'package:duo_hao/app/routes/app_pages.dart';
-import 'package:duo_hao/app/theme/app_colors.dart';
-import 'package:duo_hao/widget/my_app_bar.dart';
-import 'package:duo_hao/widget/my_super_widget.dart';
+import 'package:flutter_template/app/modules/home_module/home_controller.dart';
+import 'package:flutter_template/app/modules/webview/webview_page.dart';
+import 'package:flutter_template/app/routes/app_pages.dart';
+import 'package:flutter_template/app/theme/app_colors.dart';
+import 'package:flutter_template/widget/my_app_bar.dart';
+import 'package:flutter_template/widget/my_super_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
