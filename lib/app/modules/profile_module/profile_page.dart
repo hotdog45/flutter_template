@@ -1,18 +1,22 @@
 import 'package:dio/dio.dart';
-import 'package:flutter_template/app/routes/app_pages.dart';
-import 'package:flutter_template/app/theme/app_colors.dart';
-import 'package:flutter_template/app/utils/toast_utils.dart';
-import 'package:flutter_template/widget/my_app_bar.dart';
-import 'package:flutter_template/widget/my_super_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:flutter_template/app/modules/profile_module/profile_controller.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-/**
- * GetX Template Generator - fb.com/htngu.99
- * */
 
-class ProfilePage extends GetWidget<ProfileController> {
+import '../../../widget/my_app_bar.dart';
+import '../../../widget/my_super_widget.dart';
+import '../../routes/app_pages.dart';
+import '../../theme/app_colors.dart';
+import '../../utils/toast_utils.dart';
+
+class ProfilePage extends StatefulWidget {
+  const ProfilePage({Key? key}) : super(key: key);
+
+  @override
+  State<ProfilePage> createState() => _ProfilePageState();
+}
+
+class _ProfilePageState extends State<ProfilePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

@@ -1,4 +1,4 @@
-name: flutter_template
+name: flutter_APP
 description: A new Flutter application.
 
 publish_to: 'none'
@@ -7,7 +7,8 @@ publish_to: 'none'
 version: 1.0.0+1
 
 environment:
-  sdk: ">=2.18.2 <3.0.0"
+  sdk: '>=3.0.6 <4.0.0'
+  flutter: ">=3.16.0"
 
 dependencies:
   flutter:
@@ -15,50 +16,33 @@ dependencies:
   flutter_localizations:
     sdk: flutter
   cupertino_icons: ^1.0.5
-  dio: ^4.0.6 # 网络库
-  flutter_screenutil: ^5.5.3+2 #屏幕适配
-  pull_to_refresh_flutter3: ^2.0.1
-  url_launcher: ^6.1.3
+  dio: ^5.4.0 # 网络库
+  flutter_screenutil: ^5.9.0
+  url_launcher: ^6.1.14
   event_bus: ^2.0.0 #事件总线
   get: ^4.6.5 #状态管理
   get_storage: ^2.0.3 #内存 键值 存取
-  flutter_swiper: ^1.1.6 # 轮播
+
   bot_toast: ^4.0.2 #Toast库
   badges: ^2.0.3 #小红点
-  qr_flutter: ^4.0.0 #二维码
-  photo_view: ^0.14.0 #图片预览
-  path_provider: ^2.0.11 #获取APP路径
-  device_info_plus: ^4.0.0  #设备信息
-  signature: ^5.0.1 #手写签名板
-  flutter_slidable: ^1.0.0 #侧滑
-  launch_review: ^3.0.1 # 跳转应用市场
-  package_info_plus: ^1.4.2 # 包信息
-  open_file: ^3.2.1 # 应用内安装
-  image_picker: ^0.8.5+3  #相册
-#  fluttercontactpicker: ^4.7.0 # 通讯录
-  #  getuiflut: ^0.2.13 # 个推flutter
-#  flutter_local_notifications: ^9.7.0  #通知栏
-  archive: ^3.3.0   #文件处理
-  connectivity_plus: ^2.3.4
-  date_format: ^2.0.6
-  marquee: ^2.2.3
-  #  amap_flutter_location: ^3.0.0 #定位：高德地图
-  #  amap_flutter_map: ^3.0.0
-  map_launcher: ^2.3.0 #打开导航APP
-#  fluwx_no_pay: ^3.12.3 #微信分享
-  flutter_picker: ^2.0.3 #选择器
-  flutter_animated_dialog: ^2.0.1
-  flutter_sound: ^9.2.13 #录音
-  audio_session: ^0.1.10
-  custom_pop_up_menu: ^1.2.4
-  video_compress: ^3.1.1 #视频压缩
-  scan: ^1.6.0
-#  convex_bottom_bar: ^3.2.0
-  dio_log: ^2.0.4 #app内抓包工具
-  logger: ^1.1.0 #日志库
-#  cached_network_image: ^3.2.3
-  webview_flutter: ^3.0.4
 
+#  device_info_plus: ^9.1.1
+
+  date_format: ^2.0.6
+  flutter_picker: ^2.0.3 #选择器
+  custom_pop_up_menu: ^1.2.4
+
+  talker_dio_logger: ^2.3.3
+  logger: ^2.0.2+1 #日志库
+  webview_flutter: ^3.0.4
+  cached_network_image: ^3.2.3
+
+  image_gallery_saver: ^2.0.3
+  buttons_tabbar: ^1.3.8
+  flutter_animated_dialog: ^2.0.1
+
+  easy_refresh: ^3.3.4
+  card_swiper: ^3.0.1
 
 
 dev_dependencies:
@@ -69,6 +53,5 @@ dev_dependencies:
 flutter:
   uses-material-design: true
   assets:
-    - static/images/3.0x/
     - static/images/
     - static/

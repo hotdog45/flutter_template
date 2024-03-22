@@ -1,15 +1,16 @@
 import 'dart:io';
 import 'dart:math';
 
-// import 'package:cached_network_image/cached_network_image.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
 import '../config/config.dart';
 
-String testImage =
+String testImage3 =
     "https://bing.ioliu.cn/v1/rand?key=person&w=${Random().nextInt(700)}&h=${Random().nextInt(700)}";
-String testImage2 =
+String testImage =
     "https://picsum.photos/${Random().nextInt(700)}/${Random().nextInt(700)}/";
+String testImage2 = "https://picsum.photos/${Random().nextInt(1000)}";
 
 /// 网络图片加载
 class MyImage extends StatelessWidget {
@@ -22,6 +23,7 @@ class MyImage extends StatelessWidget {
   final Color? color;
 
   final bool isAssetImage;
+
   /// 新增展示本地文件目录下的图片
   final bool isFileImage;
   final bool isOval;
@@ -32,7 +34,6 @@ class MyImage extends StatelessWidget {
   final double? height;
   final double? width;
 
-  final progressIndicatorBuilder;
   final errorWidget;
 
   final EdgeInsetsGeometry? padding;
@@ -44,27 +45,26 @@ class MyImage extends StatelessWidget {
 
   const MyImage(this.imageUrl,
       {Key? key,
-        this.placeholder = '',
-        this.child,
-        this.fit = BoxFit.cover,
-        // this.fit ,
-        this.width,
-        this.isAssetImage = false,
-        this.isFileImage = false,
-        this.isOval = false,
-        this.hasBorder = false,
-        this.color,
-        this.borderColor = Colors.transparent,
-        this.borderWidth = 0.5,
-        this.radius = 0,
-        this.height,
-        this.onTap,
-        this.onLongPress,
-        this.onDoubleTap,
-        this.padding,
-        this.margin,
-        this.progressIndicatorBuilder,
-        this.errorWidget})
+      this.placeholder = '',
+      this.child,
+      this.fit = BoxFit.cover,
+      // this.fit ,
+      this.width,
+      this.isAssetImage = false,
+      this.isFileImage = false,
+      this.isOval = false,
+      this.hasBorder = false,
+      this.color,
+      this.borderColor = Colors.transparent,
+      this.borderWidth = 0.5,
+      this.radius = 0,
+      this.height,
+      this.onTap,
+      this.onLongPress,
+      this.onDoubleTap,
+      this.padding,
+      this.margin,
+      this.errorWidget})
       : super(key: key);
 
   @override
@@ -73,7 +73,7 @@ class MyImage extends StatelessWidget {
     if (imageUrl == null) {
       return Container();
     }
-    if(isFileImage){
+    if (isFileImage) {
       imageWidget = Image.file(
         File(imageUrl!),
         fit: fit,
@@ -91,35 +91,36 @@ class MyImage extends StatelessWidget {
           color: color,
         );
       } else {
-        String img = imageUrl!;
+        String img = imageUrl ?? "";
         if (img.length < 5) {
-          img = testImage;
-        } else {
-          if (!imageUrl!.startsWith("http") &&
-              !imageUrl!.startsWith("https://")) {
-            img = "https://" + img;
-          }
+          img =
+              "https://picsum.photos/${Random().nextInt(400)}/${Random().nextInt(400)}/";
+          // img = testImage;
         }
-        imageWidget = Image.network(img,width: width,height: height);
-
-        // imageWidget = CachedNetworkImage(
-        //   imageUrl: img,
-        //   fit: fit,
-        //   width: width,
-        //   height: height,
-        //   fadeInDuration: Duration.zero,
-        //   fadeOutDuration: Duration.zero,
-        //   // progressIndicatorBuilder
-        //   placeholder: (context, url) => placeholder!.length > 0 ? Image.asset(Config.KEY_IMAGE_PATH + placeholder!, fit: fit, width: width, height: height,) : SizedBox(),
-        //   errorWidget: (context, url, error) =>
-        //   errorWidget ??
-        //       Padding(
-        //           padding: EdgeInsets.all(20),
-        //           child: Container(color: Colors.blueGrey)),
-        // );
+        // print("图片链接:$img");
+        imageWidget = CachedNetworkImage(
+          imageUrl: img,
+          fit: fit,
+          width: width,
+          height: height,
+          fadeInDuration: Duration.zero,
+          fadeOutDuration: Duration.zero,
+          placeholder: (context, url) => placeholder!.isNotEmpty
+              ? Image.asset(
+                  Config.KEY_IMAGE_PATH + placeholder!,
+                  fit: fit,
+                  width: width,
+                  height: height,
+                )
+              : const SizedBox(),
+          errorWidget: (context, url, error) =>
+              errorWidget ??
+              Padding(
+                  padding: const EdgeInsets.all(20),
+                  child: Container(color: Colors.blueGrey)),
+        );
       }
     }
-
 
     if (padding != null) {
       imageWidget = Padding(padding: padding!, child: imageWidget);
@@ -147,14 +148,14 @@ class MyImage extends StatelessWidget {
 
     imageWidget = Container(
       margin: margin,
-      child: imageWidget,
       decoration: BoxDecoration(
         border: hasBorder
             ? Border.all(color: borderColor, width: borderWidth)
             : null,
         borderRadius:
-        BorderRadius.all(Radius.circular(isOval ? width! / 2 : radius)),
+            BorderRadius.all(Radius.circular(isOval ? width! / 2 : radius)),
       ),
+      child: imageWidget,
     );
     return imageWidget;
   }

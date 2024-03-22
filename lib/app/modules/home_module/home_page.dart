@@ -1,15 +1,22 @@
-import 'package:flutter_template/app/modules/home_module/home_controller.dart';
-import 'package:flutter_template/app/modules/webview/webview_page.dart';
-import 'package:flutter_template/app/routes/app_pages.dart';
-import 'package:flutter_template/app/theme/app_colors.dart';
-import 'package:flutter_template/widget/my_app_bar.dart';
-import 'package:flutter_template/widget/my_super_widget.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-class HomePage extends GetWidget<HomeController> {
+import '../../../widget/my_app_bar.dart';
+import '../../../widget/my_super_widget.dart';
+import '../../routes/app_pages.dart';
+import '../../theme/app_colors.dart';
+
+class HomePage extends StatefulWidget {
+  const HomePage({Key? key}) : super(key: key);
+
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -32,9 +39,6 @@ class HomePage extends GetWidget<HomeController> {
             MySuperWidget(
               text: "测试",
               onTap: () {
-                // Get.snackbar('新消息', 'Your Email not be null');
-
-                // Get.to(H5WebViewPage(title: "测试",url: "https://www.baidu.com",));
 
               },
               fontSize: 32.sp,

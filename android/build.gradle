@@ -1,24 +1,28 @@
 buildscript {
-    ext.kotlin_version = '1.6.10'
+    ext.kotlin_version = '1.7.10'
     repositories {
-        maven{url 'http://maven.aliyun.com/nexus/content/groups/public/'}//添加
-        maven{url "https://jitpack.io"}//添加
         google()
-        jcenter()
+        mavenCentral()
+        maven {
+            url "http://repo.baichuan-android.taobao.com/content/groups/BaichuanRepositories/"
+            allowInsecureProtocol = true
+        }
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:4.1.0'
+        classpath 'com.android.tools.build:gradle:7.1.2'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
     }
 }
 
 allprojects {
     repositories {
-        maven{url 'http://maven.aliyun.com/nexus/content/groups/public/'}//添加
-        maven{url "https://jitpack.io"}//添加
         google()
-        jcenter()
+        mavenCentral()
+        maven {
+            url "http://repo.baichuan-android.taobao.com/content/groups/BaichuanRepositories/"
+            allowInsecureProtocol = true
+        }
     }
 }
 
@@ -30,6 +34,9 @@ subprojects {
     project.evaluationDependsOn(':app')
 }
 
-task clean(type: Delete) {
+tasks.register("clean", Delete) {
     delete rootProject.buildDir
+}
+wrapper {
+    gradleVersion = "7.5.0"
 }

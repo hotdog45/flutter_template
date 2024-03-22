@@ -1,12 +1,18 @@
-import 'package:flutter_template/app/modules/login_module/login_controller.dart';
-import 'package:flutter_template/app/theme/app_colors.dart';
-import 'package:flutter_template/widget/my_super_widget.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:get/get.dart';
 
+import '../../../widget/my_super_widget.dart';
+import '../../theme/app_colors.dart';
 
-class LoginPage extends GetWidget<LoginController> {
+class LoginPage extends StatefulWidget {
+  const LoginPage({Key? key}) : super(key: key);
+
+  @override
+  State<LoginPage> createState() => _LoginPageState();
+}
+
+class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -31,10 +37,10 @@ class LoginPage extends GetWidget<LoginController> {
                   alignment: Alignment.centerLeft,
                   margin: EdgeInsets.only(top: 16.w, left: 75.w),
                 ),
-                _loginView(),
+
                 MySuperWidget(
                   text: "登录",
-                  onTap: controller.login,
+
                   fontSize: 32.sp,
                   textColor: Colors.white,
                   bgColor: kAppPrimaryColor,
@@ -59,47 +65,6 @@ class LoginPage extends GetWidget<LoginController> {
         ));
   }
 
-  Widget _loginView() {
-    return Container(
-        padding: EdgeInsets.only(left: 60.w, right: 60.w, top: 90.w),
-        child: Column(children: <Widget>[
-          MySuperWidget(
-            bgColor: kAppColor("#F1F1F1"),
-            radius: 4,
-            padding: EdgeInsets.only(left: 40.w, right: 20.w),
-            child: TextFormField(
-              initialValue: controller.userName,
-              decoration: InputDecoration(
-                hintText: '手机号',
-                hintStyle: TextStyle(color: Color(0xffc3c3c3)), //修改颜色
-                border: InputBorder.none,
-              ),
-              onChanged: (v) =>controller.onUsernameChanged(v),
-              style: TextStyle(fontSize: 34.sp, color: kAppTextColor),
-              textAlign: TextAlign.left,
-            ),
-          ),
-          MySuperWidget(
-            bgColor: kAppColor("#F1F1F1"),
-            radius: 4,
-            margin: EdgeInsets.only(top: 30.w),
-            padding: EdgeInsets.only(left: 40.w, right: 20.w),
-
-            child: TextFormField(
-              initialValue: controller.pwd,
-              decoration: InputDecoration(
-                hintText: '密码',
-                hintStyle: TextStyle(color: Color(0xffc3c3c3)), //修改颜色
-                border: InputBorder.none,
-              ),
-              obscureText: true,
-              onChanged: (v) =>controller.onPasswordChanged(v),
-              style: TextStyle(fontSize: 34.sp, color: kAppTextColor),
-              textAlign: TextAlign.left,
-            ),
-          ),
-        ]));
-  }
 
   Widget _goCheckBtn() {
     return Container(

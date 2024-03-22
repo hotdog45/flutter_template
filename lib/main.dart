@@ -6,9 +6,6 @@ import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-
-import 'app/modules/not_found_module/not_found_bindings.dart';
-import 'app/modules/not_found_module/not_found_page.dart';
 import 'app/routes/app_pages.dart';
 import 'app/theme/app_theme.dart';
 import 'config/dependency_injection.dart';
@@ -51,11 +48,6 @@ class MyApp extends StatelessWidget {
               navigatorObservers: [BotToastNavigatorObserver()],
               theme: appThemeData,
               defaultTransition: Transition.cupertino,
-              unknownRoute: GetPage(
-                name: Routes.NOT_FOUND,
-                page: () => NotFoundPage(),
-                binding: NotFoundBinding(),
-              ),
               localizationsDelegates: [
                 GlobalMaterialLocalizations.delegate,
                 GlobalWidgetsLocalizations.delegate,

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 class MyAppBar {
   final String title;
   final bool hasBackBtn;
@@ -18,7 +19,6 @@ class MyAppBar {
     return AppBar(
       backgroundColor: Colors.white,
       elevation: 0,
-      brightness: Brightness.light,
       centerTitle: centerTitle,
       title: titleWidget ??
           Text(title, style: TextStyle(color: Color(0xFF0D0E15), fontSize: 18, fontWeight: FontWeight.bold)),
@@ -40,7 +40,7 @@ class MyAppBar {
             }
           })
           : Container(),
-      actions: actions,
+      actions: actions, systemOverlayStyle: SystemUiOverlayStyle.dark,
     );
   }
 }

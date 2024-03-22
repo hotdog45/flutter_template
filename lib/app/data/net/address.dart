@@ -1,4 +1,6 @@
-import 'package:flutter_template/config/config.dart';
+
+
+import '../../../config/config.dart';
 
 /// host1
 const String BASE_URL_RELEASE =
@@ -44,15 +46,5 @@ getBaseH5Url(apiNum) {
       return BASE_URL_H5_RELEASE;
     default:
       return BASE_URL_H5_DEV;
-  }
-}
-
-///获取不同环境的图片服务器
-getBaseIMAGEUrl(apiNum) {
-  switch (apiNum) {
-    case Config.KEY_API_HOST_RELEASE:
-      return BASE_URL_IMAGE_RELEASE;
-    default:
-      return BASE_URL_IMAGE_DEV;
   }
 }
