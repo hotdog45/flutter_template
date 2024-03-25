@@ -1,8 +1,8 @@
 import 'package:dio/dio.dart';
 import 'package:talker_dio_logger/talker_dio_logger.dart';
 
-import '../../utils/log_utils.dart';
-import '../../utils/toast_utils.dart';
+import '../../../common/utils/log_utils.dart';
+import '../../../common/utils/toast_utils.dart';
 import 'address.dart';
 import 'header_interceptor.dart';
 

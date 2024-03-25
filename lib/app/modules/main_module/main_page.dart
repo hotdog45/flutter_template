@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
-import '../../../widget/my_image.dart';
-import '../../theme/app_colors.dart';
+import 'package:get/get.dart';
+import '../../../common/theme/app_colors.dart';
+import '../../../common/widget/app_widget.dart';
 import '../home_module/home_page.dart';
 import '../profile_module/profile_page.dart';
 
@@ -49,11 +50,11 @@ class _MainPageState extends State<MainPage> with WidgetsBindingObserver {
                   tabIndex == 0 ? "app_main_selected.png" : "app_main_unselect.png",
                   width: 25,
                   isAssetImage: true),
-              label: '首页'),
+              label: '首页'.tr),
           BottomNavigationBarItem(
               icon: MyImage(tabIndex == 1 ? "app_mine_selected.png" : "app_mine_unselect.png",
                   width: 25, isAssetImage: true),
-              label: '我的')
+              label: '我的'.tr)
         ],
       ),
       tabBuilder: (BuildContext context, int index) {

@@ -1,13 +1,10 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../widget/my_app_bar.dart';
-import '../../../widget/my_super_widget.dart';
-import '../../routes/app_pages.dart';
-import '../../theme/app_colors.dart';
-import '../../utils/toast_utils.dart';
+import '../../../common/theme/app_colors.dart';
+import '../../../common/utils/toast_utils.dart';
+import '../../../common/widget/app_widget.dart';
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({Key? key}) : super(key: key);
@@ -41,7 +38,7 @@ class _ProfilePageState extends State<ProfilePage> {
           ),
           MySuperWidget(
             text: " 注册",
-            // onTap: ()=> Get.toNamed(Routes.SIGN_UP),
+
             fontSize: 32.sp,
             textColor: Colors.white,
             bgColor: randomColor(),
@@ -51,7 +48,7 @@ class _ProfilePageState extends State<ProfilePage> {
           ),
           MySuperWidget(
             text: " 退出登录",
-            onTap: () => Get.offAllNamed(Routes.LOGIN),
+
             fontSize: 32.sp,
             textColor: Colors.white,
             bgColor: randomColor(),

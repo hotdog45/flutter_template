@@ -22,9 +22,8 @@ class _SplashPageState extends State<SplashPage> {
 
   void goHomePage() async {
     await Future.delayed(
-        Duration(milliseconds: Platform.isAndroid ? 2000 : 800));
-    Get.to(MainPage());
-
+        Duration(milliseconds: Platform.isAndroid ? 1500 : 800));
+    Get.offAll(MainPage());
   }
 
   @override

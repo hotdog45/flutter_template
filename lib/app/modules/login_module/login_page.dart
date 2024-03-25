@@ -2,8 +2,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../widget/my_super_widget.dart';
-import '../../theme/app_colors.dart';
+import '../../../common/theme/app_colors.dart';
+import '../../../common/widget/app_widget.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);

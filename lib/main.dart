@@ -6,14 +6,13 @@ import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'app/routes/app_pages.dart';
-import 'app/theme/app_theme.dart';
-import 'config/dependency_injection.dart';
-import 'config/global_config.dart';
+import 'app/modules/main_module/splash_page.dart';
+import 'common/config/dependency_injection.dart';
+import 'common/theme/app_theme.dart';
+import 'common/translations/Messages.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await GlobalConfig.init();
   await DenpendencyInjection.init();
   runApp(MyApp());
 }
@@ -28,36 +27,39 @@ class MyApp extends StatelessWidget {
         designSize: Size(750, 1334),
         builder: (BuildContext context, Widget? child) {
           return GetMaterialApp(
-              debugShowCheckedModeBanner: false,
-              initialRoute: Routes.SPLASH,
-              builder: (context, child) {
-                child = GestureDetector(
-                    onTap: () => hideKeyboard(context), child: child);
-                child = botToastBuilder(context, child);
-                if (Platform.isAndroid) {
-                  /// 仅针对安卓
-                  final systemUiOverlayStyle =
-                      SystemUiOverlayStyle(statusBarColor: Colors.transparent);
-                  SystemChrome.setSystemUIOverlayStyle(systemUiOverlayStyle);
-                }
-                // if (true) { //是否黑白主题
-                //   child = SaturationWidget(child: child);
-                // }
-                return child;
-              },
-              navigatorObservers: [BotToastNavigatorObserver()],
-              theme: appThemeData,
-              defaultTransition: Transition.cupertino,
-              localizationsDelegates: [
-                GlobalMaterialLocalizations.delegate,
-                GlobalWidgetsLocalizations.delegate,
-                GlobalCupertinoLocalizations.delegate,
-                //一定要配置,否则iphone手机长按编辑框有白屏卡着的bug出现
-              ],
-              supportedLocales: [
-                const Locale('zh', 'CN'), //设置语言为中文
-              ],
-              getPages: AppPages.pages);
+            debugShowCheckedModeBanner: false,
+            home: SplashPage(),
+            builder: (context, child) {
+              child = GestureDetector(
+                  onTap: () => hideKeyboard(context), child: child);
+              child = botToastBuilder(context, child);
+              if (Platform.isAndroid) {
+                /// 仅针对安卓
+                final systemUiOverlayStyle =
+                    SystemUiOverlayStyle(statusBarColor: Colors.transparent);
+                SystemChrome.setSystemUIOverlayStyle(systemUiOverlayStyle);
+              }
+              return child;
+            },
+            navigatorObservers: [BotToastNavigatorObserver()],
+            theme: appThemeData,
+            translations: Messages(),
+            // 你的翻译
+            locale: Locale('zh', 'CN'),
+            // 将会按照此处指定的语言翻译
+            fallbackLocale: Locale('en', 'US'),
+            // 添加一个回调语言选项，以备上面指定的语言翻译不存在
+            defaultTransition: Transition.cupertino,
+            localizationsDelegates: [
+              GlobalMaterialLocalizations.delegate,
+              GlobalWidgetsLocalizations.delegate,
+              GlobalCupertinoLocalizations.delegate,
+              //一定要配置,否则iphone手机长按编辑框有白屏卡着的bug出现
+            ],
+            supportedLocales: [
+              const Locale('zh', 'CN'), //设置语言为中文
+            ],
+          );
         });
   }
 }

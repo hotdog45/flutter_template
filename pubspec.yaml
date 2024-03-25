@@ -43,6 +43,7 @@ dependencies:
 
   easy_refresh: ^3.3.4
   card_swiper: ^3.0.1
+  package_info_plus: ^3.1.2 # 包信息
 
 
 dev_dependencies:

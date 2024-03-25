@@ -5,10 +5,9 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
-import '../../../../widget/my_app_bar.dart';
-import '../../theme/app_colors.dart';
-import '../../utils/log_utils.dart';
-
+import '../../../common/theme/app_colors.dart';
+import '../../../common/utils/log_utils.dart';
+import '../../../common/widget/app_widget.dart';
 class WebViewPage extends StatefulWidget {
   final String url;
   final bool hasNav;

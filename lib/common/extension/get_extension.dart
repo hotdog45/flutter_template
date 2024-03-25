@@ -1,7 +1,8 @@
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
 
-import '../../widget/loading_dialog.dart';
+import '../widget/app_widget.dart';
+
 export 'package:get/get.dart';
 
 extension GetExtension on GetInterface {

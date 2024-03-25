@@ -1,7 +1,6 @@
-
 import 'package:get/get.dart';
 
-import '../../../config/config.dart';
+import '../../../common/config/config.dart';
 import '../model/goods_model.dart';
 import '../net/http_manager.dart';
 
@@ -9,7 +8,6 @@ class HomeApi {
   final String _goodsList = '/goods/list';
   final String _goodsDetails = '/goods/details';
   final HttpManager _dio = Get.find<HttpManager>();
-
 
   Future<List<GoodsModel>> getGoodsList({int page = 1}) async {
     var jsonData = await _dio.netFetch(
@@ -24,7 +22,6 @@ class HomeApi {
   }
 
   Future<GoodsModel> getGoodsDetails(String id) async {
-
     var jsonData = await _dio.netFetch(_goodsDetails, {"id": id});
     GoodsModel goodsModel = GoodsModel.fromJson(jsonData);
     return goodsModel;

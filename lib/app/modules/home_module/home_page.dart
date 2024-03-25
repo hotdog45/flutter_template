@@ -1,13 +1,11 @@
-
 import 'package:flutter/material.dart';
+import 'package:flutter_APP/app/modules/test/test_page.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-import '../../../widget/my_app_bar.dart';
-import '../../../widget/my_super_widget.dart';
-import '../../routes/app_pages.dart';
-import '../../theme/app_colors.dart';
+import '../../../common/theme/app_colors.dart';
+import '../../../common/widget/app_widget.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -25,21 +23,9 @@ class _HomePageState extends State<HomePage> {
         child: Column(
           children: [
             MySuperWidget(
-              text: "商品列表页22...",
+              text: "语言切换测试",
               onTap: () {
-                Get.toNamed(Routes.GOODS_LIST);
-              },
-              fontSize: 32.sp,
-              textColor: Colors.white,
-              bgColor: randomColor(),
-              height: 88.w,
-              radius: 12.w,
-              margin: EdgeInsets.only(top: 80.w, left: 60.w, right: 60.w),
-            ),
-            MySuperWidget(
-              text: "测试",
-              onTap: () {
-
+                Get.to(TestPage());
               },
               fontSize: 32.sp,
               textColor: Colors.white,
@@ -51,9 +37,6 @@ class _HomePageState extends State<HomePage> {
             MySuperWidget(
               text: "测试22",
               onTap: () {
-                // Get.snackbar('新消息', 'Your Email not be null');
-
-                // Get.to(H5WebViewPage(title: "测试",url: "https://www.baidu.com",));
                 launch("https://www.baidu.com");
               },
               fontSize: 32.sp,
@@ -68,7 +51,6 @@ class _HomePageState extends State<HomePage> {
               width: 400,
               height: 300,
             ),
-
           ],
         ),
       ),

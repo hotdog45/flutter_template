@@ -1,7 +1,4 @@
-
-
-import '../../../config/config.dart';
-
+import '../../../common/config/config.dart';
 /// host1
 const String BASE_URL_RELEASE =
     "https://www.fastmock.site/mock/e9989c53677bb7ea0b00f2c37e5f95ae/duohao"; //线上
